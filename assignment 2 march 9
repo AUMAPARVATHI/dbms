@@ -1,0 +1,71 @@
+A.UMA PARVATHI
+ create table examhalltickets(htno number(15),studentname varchar2(20),examcenter varchar2(30),regid number(4) references university(regid));
+
+Table created.
+insert into examhalltickets values(&htnum,'&sname','&examcenter',&regdnum);
+Enter value for htnum: 15285222528
+Enter value for sname: uma
+Enter value for examcenter: pragati
+Enter value for regdnum: 12
+old   1:  insert into examhalltickets values(&htnum,'&sname','&examcenter',&regdnum)
+new   1:  insert into examhalltickets values(15285222528,'uma','pragati',12)
+
+1 row created.
+
+SQL> /
+Enter value for htnum: 1523659856
+Enter value for sname: sai
+Enter value for examcenter: vsl
+Enter value for regdnum: 12
+old   1:  insert into examhalltickets values(&htnum,'&sname','&examcenter',&regdnum)
+new   1:  insert into examhalltickets values(1523659856,'sai','vsl',12)
+
+1 row created.
+
+SQL> /
+Enter value for htnum: 153389236523
+Enter value for sname: priya
+Enter value for examcenter: gpt
+Enter value for regdnum: 12
+old   1:  insert into examhalltickets values(&htnum,'&sname','&examcenter',&regdnum)
+new   1:  insert into examhalltickets values(153389236523,'priya','gpt',12)
+
+1 row created.
+
+SQL> /
+Enter value for htnum: 12356989256
+Enter value for sname: rupa
+Enter value for examcenter: aditya
+Enter value for regdnum: 12
+old   1:  insert into examhalltickets values(&htnum,'&sname','&examcenter',&regdnum)
+new   1:  insert into examhalltickets values(12356989256,'rupa','aditya',12)
+
+1 row created.
+
+
+SQL> /
+Enter value for htnum: 1256893561
+Enter value for sname: aruna
+Enter value for examcenter: msn
+Enter value for regdnum: 12
+old   1:  insert into examhalltickets values(&htnum,'&sname','&examcenter',&regdnum)
+new   1:  insert into examhalltickets values(1256893561,'aruna','msn',12)
+
+1 row created.
+
+ select * from examhalltickets;
+
+      HTNO STUDENTNAME          EXAMCENTER                          REGID
+---------- -------------------- ------------------------------ ----------
+1.5285E+10 uma                  pragati                                12
+1523659856 sai                  vsl                                    12
+1.2357E+10 rupa                 aditya                                 12
+1.5339E+11 priya                gpt                                    12
+1256893561 aruna                msn                                    12
+SQL> desc examhalltickets;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ HTNO                                               NUMBER(15)
+ STUDENTNAME                                        VARCHAR2(20)
+ EXAMCENTER                                         VARCHAR2(30)
+ REGID                                              NUMBER(4)
