@@ -1,0 +1,68 @@
+a.umaparvath assignment1
+ create table uni(regid number(4) primary key,studentname varchar2(20),gender char(1),year number(4),collegename varchar2(30));
+
+Table created.
+
+SQL>  insert into university values(&id,'&stdname','&gender',&year,'&collegename');
+Enter value for id: 12
+Enter value for stdname: uma
+Enter value for gender: f
+Enter value for year: 2002
+Enter value for collegename: vsl
+old   1:  insert into university values(&id,'&stdname','&gender',&year,'&collegename')
+new   1:  insert into university values(12,'uma','f',2002,'vsl')
+
+1 row created.
+
+SQL> /
+Enter value for id: 13
+Enter value for stdname: sharon
+Enter value for gender: f
+Enter value for year: 2002
+Enter value for collegename: vsl
+old   1:  insert into university values(&id,'&stdname','&gender',&year,'&collegename')
+new   1:  insert into university values(13,'sharon','f',2002,'vsl')
+
+1 row created.
+
+SQL> /
+Enter value for id: 14
+Enter value for stdname: rupa
+Enter value for gender: f
+Enter value for year: 2003
+Enter value for collegename: vsl
+old   1:  insert into university values(&id,'&stdname','&gender',&year,'&collegename')
+new   1:  insert into university values(14,'rupa','f',2003,'vsl')
+
+1 row created.
+
+SQL> /
+Enter value for id: 15
+Enter value for stdname: sai
+Enter value for gender: f
+Enter value for year: 2005
+Enter value for collegename: vsl
+old   1:  insert into university values(&id,'&stdname','&gender',&year,'&collegename')
+new   1:  insert into university values(15,'sai','f',2005,'vsl ')
+
+1 row created.
+
+
+SQL>  select * from university;
+
+     REGID STUDENTNAME          G       YEAR COLLEGENAME
+---------- -------------------- - ---------- ------------------------------
+        12 uma                  f       2002 vsl
+        13 sharon               f       2002 vsl
+        14 rupa                 f       2003 vsl
+        15 sai                  f       2005 vsl
+
+SQL> desc university;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGID                                     NOT NULL NUMBER(4)
+ STUDENTNAME                                        VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ YEAR                                               NUMBER(4)
+ COLLEGENAME                                        VARCHAR2(30)
+
