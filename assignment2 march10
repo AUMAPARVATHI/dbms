@@ -1,0 +1,80 @@
+a.umaparvathi
+SQL> connect uma/tiger
+Connected.
+
+SQL> insert into system.employee values(&no,'&name','&desig',&sal);
+
+SQL> select * from uma.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+         1  uma                       manager                   45000
+         2  parvathi                  engineer                  33000
+         3  sai                       analyst                   40000
+         4  aruna                     developer                 30000
+         5  siva                      team leader               40000
+       
+       
+SQL> commit;
+
+Commit complete.
+
+
+SQL> savepoint uma;
+
+Savepoint created.
+
+SQL>  insert into uma.employee values(&no,'&name','&desig',&sal);
+
+SQL> select * from uma.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+         1  uma                       manager                   45000
+         2  parvathi                  engineer                  33000
+         3  sai                       analyst                   40000
+         4  aruna                     developer                 30000
+         5  siva                      team leader               40000
+         6  kavya                       manager                 40000
+         7  satya                       manager                 25000
+
+SQL> savepoint uma;
+
+Savepoint created.
+
+SQL> rollback to uma;
+
+Rollback complete.
+
+SQL> select * from uma.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+         1  uma                       manager                   45000
+         2  parvathi                  engineer                  33000
+         3  sai                       analyst                   40000
+         4  aruna                     developer                 30000
+         5  siva                      team leader               40000
+       
+       
+       
+       
+SQL>  insert into uma.employee values(&no,'&name','&desig',&sal);
+
+SQL> select *from uma.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+         1  uma                       manager                   45000
+         2  parvathi                  engineer                  33000
+         3  sai                       analyst                   40000
+         4  aruna                     developer                 30000
+         5  siva                      team leader               40000
+         6  kavya                       manager                 40000
+         7  satya                       manager                 25000
+
+
+
+SQL> commit;
+
+Commit complete.
