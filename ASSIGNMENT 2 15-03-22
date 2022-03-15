@@ -1,0 +1,154 @@
+
+A.UMA PARVATHI
+Enter user-name: system
+Enter password:
+Connected.
+SQL>  create table registration(redno number(4),candname varchar2(30),gender varchar2(7),qualification varchar2(20),age number(2) check(age between 20 and 30));
+
+Table created.
+
+SQL> desc registration;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REDNO                                              NUMBER(4)
+ CANDNAME                                           VARCHAR2(30)
+ GENDER                                             VARCHAR2(7)
+ QUALIFICATION                                      VARCHAR2(20)
+ AGE                                                NUMBER(2)
+
+SQL>  insert into registration values(&redno,'&name','&gender','&qualification',&age);
+Enter value for redno: 2
+Enter value for name: uma
+Enter value for gender: f
+Enter value for qualification: bsc
+Enter value for age: 20
+old   1:  insert into registration values(&redno,'&name','&gender','&qualification',&age)
+new   1:  insert into registration values(2,'uma','f','bsc',20)
+
+1 row created.
+
+SQL> /
+Enter value for redno: 3
+Enter value for name: uma
+Enter value for gender: f
+Enter value for qualification: bcom
+Enter value for age: 21
+old   1:  insert into registration values(&redno,'&name','&gender','&qualification',&age)
+new   1:  insert into registration values(3,'uma','f','bcom',21)
+
+1 row created.
+
+SQL> /
+Enter value for redno: 4
+Enter value for name: sai
+Enter value for gender: f
+Enter value for qualification: bsc
+Enter value for age: 22
+old   1:  insert into registration values(&redno,'&name','&gender','&qualification',&age)
+new   1:  insert into registration values(4,'sai','f','bsc',22)
+
+1 row created.
+
+SQL> /
+Enter value for redno: 5
+Enter value for name: sivadurga
+Enter value for gender: f
+Enter value for qualification: btech
+Enter value for age: 23
+old   1:  insert into registration values(&redno,'&name','&gender','&qualification',&age)
+new   1:  insert into registration values(5,'sivadurga','f','btech',23)
+
+1 row created.
+
+SQL> /
+Enter value for redno: 6
+Enter value for name: sharon
+Enter value for gender: f
+Enter value for qualification: bsc
+Enter value for age: 24
+old   1:  insert into registration values(&redno,'&name','&gender','&qualification',&age)
+new   1:  insert into registration values(6,'sharon','f','bsc',24)
+
+1 row created.
+
+SQL> select *from registration;
+
+     REDNO CANDNAME                       GENDER  QUALIFICATION
+---------- ------------------------------ ------- --------------------
+       AGE
+----------
+         2 uma                            f       bsc
+        20
+
+         3 uma                            f       bcom
+        21
+
+         4 sai                            f       bsc
+        22
+
+
+     REDNO CANDNAME                       GENDER  QUALIFICATION
+---------- ------------------------------ ------- --------------------
+       AGE
+----------
+         5 sivadurga                      f       btech
+        23
+
+         6 sharon                         f       bsc
+        24
+
+
+
+SQL> select *from registration;
+
+     REDNO CANDNAME                       GENDER  QUALIFICATION               AGE
+---------- ------------------------------ ------- -------------------- ----------
+         2 uma                            f       bsc                          20
+         3 uma                            f       bcom                         21
+         4 sai                            f       bsc                          22
+         5 sivadurga                      f       btech                        23
+         6 sharon                         f       bsc                          24
+
+
+
+
+
+SQL> select *from registration where gender='f';
+
+     REDNO CANDNAME                       GENDER  QUALIFICATION               AGE
+---------- ------------------------------ ------- -------------------- ----------
+         2 uma                            f       bsc                          20
+         3 uma                            f       bcom                         21
+         4 sai                            f       bsc                          22
+         5 sivadurga                      f       btech                        23
+         6 sharon                         f       bsc                          24
+
+SQL> /
+Enter value for redno: 2
+Enter value for name: aruna
+Enter value for gender: m
+Enter value for qualification: bs
+Enter value for age: 22
+old   1: insert into registration values(&redno,'&name','&gender','&qualification',&age)
+new   1: insert into registration values(2,'aruna','m','bs',22)
+
+1 row created.
+         6 sharon                         f       bsc                          24
+
+SQL> insert into registration values(&redno,'&name','&gender','&qualification',&age);
+Enter value for redno: 2
+Enter value for name: uma
+Enter value for gender: m
+Enter value for qualification: bsc
+Enter value for age: 23
+old   1: insert into registration values(&redno,'&name','&gender','&qualification',&age)
+new   1: insert into registration values(2,'uma','m','bsc',23)
+
+1 row created.
+
+SQL>  select *from registration where gender='m';
+
+     REDNO CANDNAME                       GENDER  QUALIFICATION               AGE
+---------- ------------------------------ ------- -------------------- ----------
+         2 uma                            m       bsc                          23
+         2 aruna                          m       bs                           22
