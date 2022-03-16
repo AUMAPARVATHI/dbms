@@ -1,0 +1,96 @@
+ update apsrtc set ticket_price=100 where kms > 500;
+
+2 rows updated.
+
+SQL>  select * from APSRTC;
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+ 1         e                    kkd             vig                    500          400
+2          e                    kkd             hyd                    400          300
+3          e                    hyd             kkd                    500          500
+4          e                    chennai         kakinada               400          800
+5          e                    gollaprolu      kakinada                25           30
+6          e                    hyd             chennai                 45          500
+7          e                    vizag           kakinada                80          400
+8          exp                  tuni            kakinad                400          900
+9          exp                  kerala          kakinada               400          700
+10         passenger            mumbai          kakinada               300          400
+11         exp                  hyd             kakinada               800          100
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+12         exp\                 hyd             kakinada               900          100
+
+12 rows selected.
+SQL>  select * from APSRTC;
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+ 1         e                    kkd             vig                    500          400
+2          e                    kkd             hyd                    400          300
+3          e                    hyd             kkd                    500          500
+4          e                    chennai         kakinada               400          800
+5          e                    gollaprolu      kakinada                25           30
+6          e                    hyd             chennai                 45          500
+7          e                    vizag           kakinada                80          400
+8          exp                  tuni            kakinad                400          900
+9          exp                  kerala          kakinada               400          700
+10         passenger            mumbai          kakinada               300          400
+11         exp                  hyd             kakinada               800          100
+12         exp\                 hyd             kakinada               900          100
+
+12 rows selected.
+
+
+SQL> update apsrtc set ticket_price=ticket_price+100 where kms > 500;
+
+2 rows updated.
+
+SQL>  select * from APSRTC;
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+ 1         e                    kkd             vig                    500          400
+2          e                    kkd             hyd                    400          300
+3          e                    hyd             kkd                    500          500
+4          e                    chennai         kakinada               400          800
+5          e                    gollaprolu      kakinada                25           30
+6          e                    hyd             chennai                 45          500
+7          e                    vizag           kakinada                80          400
+8          exp                  tuni            kakinad                400          900
+9          exp                  kerala          kakinada               400          700
+10         passenger            mumbai          kakinada               300          400
+11         exp                  hyd             kakinada               800          200
+12         exp\                 hyd             kakinada               900          200
+
+12 rows selected.
+
+SQL> update apsrtc set ticket_price=ticket_price-50 where kms < 500;
+
+8 rows updated.
+
+SQL>  select * from APSRTC;
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+ 1         e                    kkd             vig                    500          400
+2          e                    kkd             hyd                    400          250
+3          e                    hyd             kkd                    500          500
+4          e                    chennai         kakinada               400          750
+5          e                    gollaprolu      kakinada                25          -20
+6          e                    hyd             chennai                 45          450
+7          e                    vizag           kakinada                80          350
+8          exp                  tuni            kakinad                400          850
+9          exp                  kerala          kakinada               400          650
+10         passenger            mumbai          kakinada               300          350
+11         exp                  hyd             kakinada               800          200
+12         exp\                 hyd             kakinada               900          200
+
+12 rows selected.
+
+SQL> select * from apsrtc where boarding='kkd' and upto='vig';
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+ 1         e                    kkd             vig                    500          400
