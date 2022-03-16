@@ -1,0 +1,39 @@
+a.uma parvathi
+
+SQL> conn
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table apsrtc(service_no varchar2(10) primary key,service_type varchar2(20),boarding varchar2(15),upto varchar2(15),kms number(5),ticket_price number(5));
+
+Table created.
+
+SQL> insert into apsrtc values('&service_num','&service_type','&boarding','&upto',&kms,&price);
+Enter value for service_num:  1
+Enter value for service_type: e
+Enter value for boarding: kkd
+Enter value for upto: vig
+Enter value for kms: 500
+Enter value for price: 400
+old   1: insert into apsrtc values('&service_num','&service_type','&boarding','&upto',&kms,&price)
+new   1: insert into apsrtc values(' 1','e','kkd','vig',500,400)
+
+1 row created.
+SQL> select * from APSRTC;
+
+SQL>  select * from APSRTC;
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+ 1         e                    kkd             vig                    500          400
+2          e                    kkd             hyd                    400          300
+3          e                    hyd             kkd                    500          500
+4          e                    chennai         kakinada               400          800
+5          e                    gollaprolu      kakinada                25           30
+6          e                    hyd             chennai                 45          500
+7          e                    vizag           kakinada                80          400
+8          exp                  tuni            kakinad                400          900
+9          exp                  kerala          kakinada               400          700
+10         passenger            mumbai          kakinada               300          400
+
+10 rows selected.
