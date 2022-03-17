@@ -1,0 +1,125 @@
+A.uma parvathi
+
+SQL> conn
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table restaurant(billid int,custname varchar2(30),phno number(10),amount number(5));
+
+Table created.
+
+SQL> create sequence code
+  2       start with 100001
+  3       increment by 1
+  4       minvalue 100001
+  5       maxvalue 100050
+  6       cycle;
+
+Sequence created.
+
+SQL> insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount);
+Enter value for custname: uma
+Enter value for phno: 9705531491
+Enter value for amount: 500
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'uma',9705531491,500)
+
+1 row created.
+
+SQL> /
+Enter value for custname: Janu
+Enter value for phno: 7897058591
+Enter value for amount: 500
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'Janu',7897058591,500)
+
+1 row created.
+
+SQL> /
+Enter value for custname: Jhansi
+Enter value for phno: 9787858588
+Enter value for amount: 700
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'Jhansi',9787858588,700)
+
+1 row created.
+
+SQL> /
+Enter value for custname: janaki
+Enter value for phno: 8696847474
+Enter value for amount: 700
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'janaki',8696847474,700)
+
+1 row created.
+
+SQL> /
+Enter value for custname: Jayasri
+Enter value for phno: 7897078474
+Enter value for amount: 400
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'Jayasri',7897078474,400)
+
+1 row created.
+
+SQL> /
+Enter value for custname: parvathi
+Enter value for phno: 8796968474
+Enter value for amount: 500
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'parvathi',8796968474,500)
+
+1 row created.
+
+SQL> /
+Enter value for custname: siva
+Enter value for phno: 7068696847
+Enter value for amount: 400
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'siva',7068696847,400)
+
+1 row created.
+
+SQL> /
+Enter value for custname: aruna
+Enter value for phno: 9807895672
+Enter value for amount: 400
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'aruna',9807895672,400)
+
+1 row created.
+
+SQL> /
+Enter value for custname: sai
+Enter value for phno: 7879705857
+Enter value for amount: 200
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'sai',7879705857,200)
+
+1 row created.
+
+SQL> /
+Enter value for custname: sirisha
+Enter value for phno: 8797078745
+Enter value for amount: 300
+old   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount)
+new   1: insert into restaurant (billid,custname,phno,amount)values(code.nextval,'sirisha',8797078745,300)
+
+1 row created.
+
+SQL> select *from restaurant;
+
+    BILLID CUSTNAME                             PHNO     AMOUNT
+---------- ------------------------------ ---------- ----------
+    100001 uma                            9705531491        500
+    100003 Janu                           7897058591        500
+    100004 Jhansi                         9787858588        700
+    100005 janaki                         8696847474        700
+    100006 Jayasri                        7897078474        400
+    100007 parvathi                       8796968474        500
+    100008 siva                           7068696847        400
+    100009 aruna                          9807895672        400
+    100010 sai                            7879705857        200
+    100011 sirisha                        8797078745        300
+
+10 rows selected.
