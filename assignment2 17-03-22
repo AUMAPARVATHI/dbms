@@ -1,0 +1,26 @@
+A.UMA PARVATHI
+
+SQL> select *from restaurant where custname like 'J%';
+
+    BILLID CUSTNAME                             PHNO     AMOUNT
+---------- ------------------------------ ---------- ----------
+    100003 Janu                           7897058591        500
+    100004 Jhansi                         9787858588        700
+    100006 Jayasri                        7897078474        400
+
+SQL>  select *from restaurant order by custname desc;
+
+    BILLID CUSTNAME                             PHNO     AMOUNT
+---------- ------------------------------ ---------- ----------
+    100001 uma                            9705531491        500
+    100008 siva                           7068696847        400
+    100011 sirisha                        8797078745        300
+    100010 sai                            7879705857        200
+    100007 parvathi                       8796968474        500
+    100005 janaki                         8696847474        700
+    100009 aruna                          9807895672        400
+    100004 Jhansi                         9787858588        700
+    100006 Jayasri                        7897078474        400
+    100003 Janu                           7897058591        500
+
+10 rows selected.
