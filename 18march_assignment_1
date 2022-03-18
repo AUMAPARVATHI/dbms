@@ -1,0 +1,13 @@
+SQL> create table student1(regno number(4) primary key,sname varchar2(30),grp varchar2(10),email_id varchar2(30),phno number(10));
+
+Table created.
+
+SQL> desc student1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL NUMBER(4)
+ SNAME                                              VARCHAR2(30)
+ GRP                                                VARCHAR2(10)
+ EMAIL_ID                                           VARCHAR2(30)
+ PHNO                                               NUMBER(10)
+
