@@ -1,0 +1,8 @@
+ 
+ASSIGNMENT-2
+
+
+SQL> create view result1 as select stud.regno,stud.sname,stud.grp,exam.s1,exam.s2,exam.s3,exam.total,exam.avg from stud,exam;
+
+
+SQL> select * from result1;
