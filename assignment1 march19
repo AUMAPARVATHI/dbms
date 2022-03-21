@@ -1,0 +1,65 @@
+SQL> create table shoppingmall1(billid number(4),custname varchar2(25),phno number(10),billamount number(8,2));
+
+Table created.
+
+SQL> insert into shoppingmall values(&bill,'&name',&phno,&amount);
+Enter value for bill: 1
+Enter value for name: uma
+Enter value for phno: 9876567898
+Enter value for amount: 200
+old   1: insert into shoppingmall values(&bill,'&name',&phno,&amount)
+new   1: insert into shoppingmall values(1,'uma',9876567898,200)
+
+1 row created.
+
+SQL> /
+Enter value for bill: 2
+Enter value for name: ramya
+Enter value for phno: 3456789243
+Enter value for amount: 300
+old   1: insert into shoppingmall values(&bill,'&name',&phno,&amount)
+new   1: insert into shoppingmall values(2,'ramya',3456789243,300)
+
+1 row created.
+
+SQL> /
+Enter value for bill: 3
+Enter value for name: sharon
+Enter value for phno: 3456789232
+Enter value for amount: 500
+old   1: insert into shoppingmall values(&bill,'&name',&phno,&amount)
+new   1: insert into shoppingmall values(3,'sharon',3456789232,500)
+
+1 row created.
+
+SQL> select * from shoppingmall;
+
+    BILLID CUSTNAME                        PHNO BILLAMOUNT
+---------- ------------------------- ---------- ----------
+         1 uma                       9876567898        200
+         2 ramya                     3456789243        300
+         3 sharon                    3456789232        500
+
+SQL> select sum(billamount) from shoppingmall;
+
+SUM(BILLAMOUNT)
+---------------
+           1000
+
+SQL> select max(billamount) from shoppingmall;
+
+MAX(BILLAMOUNT)
+---------------
+            500
+
+SQL> select avg(billamount) from shoppingmall;
+
+AVG(BILLAMOUNT)
+---------------
+     333.333333
+
+SQL> select count(custname) from shoppingmall;
+
+COUNT(CUSTNAME)
+---------------
+              3
