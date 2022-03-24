@@ -1,0 +1,225 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Wed Mar 23 15:49:46 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table emp1(empno number(4),empname varchar2(20),empdesig varchar2(20),empsal number(5));
+
+Table created.
+
+SQL> insert into emp1 values(&no,'&name','&desig',&sal);
+Enter value for no: 1
+Enter value for name: uma
+Enter value for desig: labfacaulty
+Enter value for sal: 10000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(1,'uma','labfacaulty',10000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 2
+Enter value for name: aruna
+Enter value for desig: doctor
+Enter value for sal: 20000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(2,'aruna','doctor',20000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 3
+Enter value for name: siva
+Enter value for desig: teacher
+Enter value for sal: 10000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(3,'siva','teacher',10000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 4
+Enter value for name: sai
+Enter value for desig: accountant
+Enter value for sal: 150000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(4,'sai','accountant',150000)
+insert into emp1 values(4,'sai','accountant',150000)
+                                             *
+ERROR at line 1:
+ORA-01438: value larger than specified precision allowed for this column
+
+
+SQL> /
+Enter value for no: 4
+Enter value for name: sai
+Enter value for desig: accountant
+Enter value for sal: 15000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(4,'sai','accountant',15000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 5
+Enter value for name: sirisha
+Enter value for desig: office
+Enter value for sal: 14000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(5,'sirisha','office',14000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 6
+Enter value for name: durga
+Enter value for desig: labassist
+Enter value for sal: 13000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(6,'durga','labassist',13000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 7
+Enter value for name: sudha
+Enter value for desig: computerlab
+Enter value for sal: 12000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(7,'sudha','computerlab',12000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 8
+Enter value for name: kavya
+Enter value for desig: computeroperator
+Enter value for sal: 12000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(8,'kavya','computeroperator',12000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 9
+Enter value for name: ramya
+Enter value for desig: faculty
+Enter value for sal: 11000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(9,'ramya','faculty',11000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 10
+Enter value for name: manga
+Enter value for desig: computerfaculty
+Enter value for sal: 13000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(10,'manga','computerfaculty',13000)
+
+1 row created.
+
+SQL> select * from emp1;
+
+     EMPNO EMPNAME              EMPDESIG                 EMPSAL
+---------- -------------------- -------------------- ----------
+         1 uma                  labfacaulty               10000
+         2 aruna                doctor                    20000
+         3 siva                 teacher                   10000
+         4 sai                  accountant                15000
+         5 sirisha              office                    14000
+         6 durga                labassist                 13000
+         7 sudha                computerlab               12000
+         8 kavya                computeroperator          12000
+         9 ramya                faculty                   11000
+        10 manga                computerfaculty           13000
+
+10 rows selected.
+
+SQL> set serveroutput on
+SQL>  declare
+  2     x int;
+  3      begin
+  4      update emp1 set empsal=empsal+6500 where empsal>45000 and empsal<85000;
+  5      if sql%notfound then
+  6      dbms_output.put_line('not updated');
+  7      elsif sql%found then
+  8     x:=sql%rowcount;
+  9     dbms_output.put_line(x||'  emp salaries updated');
+ 10     end if;
+ 11     end;
+ 12
+ 13     /
+not updated
+
+PL/SQL procedure successfully completed.
+
+SQL>  declare
+  2     x int;
+  3      begin
+  4      update emp1 set empsal=empsal+6500 where empsal>10000 and empsal<15000;
+  5      if sql%notfound then
+  6      dbms_output.put_line('not updated');
+  7      elsif sql%found then
+  8     x:=sql%rowcount;
+  9     dbms_output.put_line(x||'  emp salaries updated');
+ 10     end if;
+ 11     end;
+ 12
+ 13     /
+6  emp salaries updated
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from emp1;
+
+     EMPNO EMPNAME              EMPDESIG                 EMPSAL
+---------- -------------------- -------------------- ----------
+         1 uma                  labfacaulty               10000
+         2 aruna                doctor                    20000
+         3 siva                 teacher                   10000
+         4 sai                  accountant                15000
+         5 sirisha              office                    20500
+         6 durga                labassist                 19500
+         7 sudha                computerlab               18500
+         8 kavya                computeroperator          18500
+         9 ramya                faculty                   17500
+        10 manga                computerfaculty           19500
+
+10 rows selected.
+
+SQL> declare
+  2      no emp1.empno%type;
+  3      name emp1.empname%type;
+  4      sal emp1.empsal%type;
+  5     cursor e is select empno,empname,empsal from emp1;
+  6      begin
+  7      open e;
+  8      loop
+  9      fetch e into no,name,sal;
+ 10     exit when e%notfound;
+ 11     dbms_output.put_line('emp number='||no||'  emp name='||name||'  emp salary='||sal);
+ 12     end loop;
+ 13     close e;
+ 14     end;
+ 15
+ 16    /
+emp number=1  emp name=uma  emp salary=10000
+emp number=2  emp name=aruna  emp salary=20000
+emp number=3  emp name=siva  emp salary=10000
+emp number=4  emp name=sai  emp salary=15000
+emp number=5  emp name=sirisha  emp salary=20500
+emp number=6  emp name=durga  emp salary=19500
+emp number=7  emp name=sudha  emp salary=18500
+emp number=8  emp name=kavya  emp salary=18500
+emp number=9  emp name=ramya  emp salary=17500
+emp number=10  emp name=manga  emp salary=19500
+
+PL/SQL procedure successfully completed.
+
+SQL>
