@@ -1,0 +1,137 @@
+A.umaparvathi
+SQL> conn
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table emp1(empno number(4),empname varchar2(20),empdesig varchar2(20),empsal number(5));
+
+Table created.
+
+SQL> insert into emp1 values(&no,'&name','&desig',&sal);
+Enter value for no: 1
+Enter value for name: uma
+Enter value for desig: labfacaulty
+Enter value for sal: 10000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(1,'uma','labfacaulty',10000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 2
+Enter value for name: aruna
+Enter value for desig: doctor
+Enter value for sal: 20000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(2,'aruna','doctor',20000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 3
+Enter value for name: siva
+Enter value for desig: teacher
+Enter value for sal: 10000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(3,'siva','teacher',10000)
+
+1 row created.
+SQL> /
+Enter value for no: 4
+Enter value for name: sai
+Enter value for desig: accountant
+Enter value for sal: 150000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(4,'sai','accountant',150000)
+insert into emp1 values(4,'sai','accountant',150000)
+                                             *
+ERROR at line 1:
+ORA-01438: value larger than specified precision allowed for this column
+
+
+SQL> /
+Enter value for no: 4
+Enter value for name: sai
+Enter value for desig: accountant
+Enter value for sal: 15000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(4,'sai','accountant',15000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 5
+Enter value for name: sirisha
+Enter value for desig: office
+Enter value for sal: 14000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(5,'sirisha','office',14000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 6
+Enter value for name: durga
+Enter value for desig: labassist
+Enter value for sal: 13000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(6,'durga','labassist',13000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 7
+Enter value for name: sudha
+Enter value for desig: computerlab
+Enter value for sal: 12000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(7,'sudha','computerlab',12000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 8
+Enter value for name: kavya
+Enter value for desig: computeroperator
+Enter value for sal: 12000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(8,'kavya','computeroperator',12000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 9
+Enter value for name: ramya
+Enter value for desig: faculty
+Enter value for sal: 11000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(9,'ramya','faculty',11000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 10
+Enter value for name: manga
+Enter value for desig: computerfaculty
+Enter value for sal: 13000
+old   1: insert into emp1 values(&no,'&name','&desig',&sal)
+new   1: insert into emp1 values(10,'manga','computerfaculty',13000)
+
+1 row created.
+
+SQL> select * from emp1;
+
+     EMPNO EMPNAME              EMPDESIG                 EMPSAL
+---------- -------------------- -------------------- ----------
+         1 uma                  labfacaulty               10000
+         2 aruna                doctor                    20000
+         3 siva                 teacher                   10000
+         4 sai                  accountant                15000
+         5 sirisha              office                    14000
+         6 durga                labassist                 13000
+         7 sudha                computerlab               12000
+         8 kavya                computeroperator          12000
+         9 ramya                faculty                   11000
+        10 manga                computerfaculty           13000
+
+10 rows selected.
