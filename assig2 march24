@@ -1,0 +1,74 @@
+SQL> select * from employe;
+
+       ENO ENAME                DESIGN               DOB       DOJ
+---------- -------------------- -------------------- --------- ---------
+    SALARY
+----------
+         2 uma                  faculty              12-JUL-22 13-APR-21
+      2000
+
+         3 siva                 faculty              12-MAR-22 13-MAR-22
+      3000
+
+         2 sirisha              doctor               15-JUL-22 14-AUG-22
+      2000
+
+
+       ENO ENAME                DESIGN               DOB       DOJ
+---------- -------------------- -------------------- --------- ---------
+    SALARY
+----------
+         4 sai                  teacher              13-APR-22 15-JUL-22
+      2000
+      
+    create trigger e_sal
+    before update on employe
+    for each row
+    when(new.employe>0)
+    declare
+    sal int;
+    begin
+    sal:=:new.salary-:old.salary;
+    dbms_output.put_line('old salary : '||:old.salary);
+   dbms_output.put_line('new salary : '||:new.salary);
+   dbms_output.put_line('increment  : '||sal);
+   end;
+   /
+trigger created
+SQL>  declare
+  2      increm int;
+  3      begin
+  4      update employe set salary=salary+7500;
+  5      if sql%notfound then
+  6      dbms_output.put_line('no salary updated');
+  7      elsif sql%found then
+  8      increm:=sql%rowcount;
+  9      dbms_output.put_line(increm ||' employee salaries updated');
+ 10     end if;
+ 11     end;
+ 12     /
+
+PL/SQL procedure successfully completed.
+
+select * from employe;
+
+       ENO ENAME                DESIGN               DOB       DOJ
+---------- -------------------- -------------------- --------- ---------
+    SALARY
+----------
+         2 uma                  faculty              12-JUL-22 13-APR-21
+     17000
+
+         3 siva                 faculty              12-MAR-22 13-MAR-22
+     18000
+
+         2 sirisha              doctor               15-JUL-22 14-AUG-22
+     17000
+
+
+       ENO ENAME                DESIGN               DOB       DOJ
+---------- -------------------- -------------------- --------- ---------
+    SALARY
+----------
+         4 sai                  teacher              13-APR-22 15-JUL-22
+     17000
