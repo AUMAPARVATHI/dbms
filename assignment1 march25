@@ -1,0 +1,96 @@
+a.uma parvathi
+SQL> conn
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table employe(eno number(4),ename varchar2(20),design varchar2(20),dob date,doj date,salary number(6));
+
+Table created.
+SQL>  insert into employe values(&no,'&name','&desig','&dob','&doj',&sal);
+Enter value for no: 2
+Enter value for name: uma
+Enter value for desig: faculty
+Enter value for dob: 12-jul-22
+Enter value for doj: 13-apr-21
+Enter value for sal: 2000
+old   1:  insert into employe values(&no,'&name','&desig','&dob','&doj',&sal)
+new   1:  insert into employe values(2,'uma','faculty','12-jul-22','13-apr-21',2000)
+
+1 row created.
+
+SQL> insert into employe values(&no,'&name','&desig','&dob','&doj',&sal);
+Enter value for no: 3
+Enter value for name: siva
+Enter value for desig: faculty
+Enter value for dob: 12-mar-22
+Enter value for doj: 13-mar-22
+Enter value for sal: 3000
+old   1: insert into employe values(&no,'&name','&desig','&dob','&doj',&sal)
+new   1: insert into employe values(3,'siva','faculty','12-mar-22','13-mar-22',3000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 2
+Enter value for name: sirisha
+Enter value for desig: doctor
+Enter value for dob: 15-jul-22
+Enter value for doj: 14-aug-22
+Enter value for sal: 2000
+old   1: insert into employe values(&no,'&name','&desig','&dob','&doj',&sal)
+new   1: insert into employe values(2,'sirisha','doctor','15-jul-22','14-aug-22',2000)
+
+1 row created.
+
+SQL> /
+Enter value for no: 4
+Enter value for name: sai
+Enter value for desig: teacher
+Enter value for dob: 13-apr-22
+Enter value for doj: 15-jul-22
+Enter value for sal: 2000
+old   1: insert into employe values(&no,'&name','&desig','&dob','&doj',&sal)
+new   1: insert into employe values(4,'sai','teacher','13-apr-22','15-jul-22',2000)
+
+1 row created.
+
+SQL> select * from employe;
+
+       ENO ENAME                DESIGN               DOB       DOJ
+---------- -------------------- -------------------- --------- ---------
+    SALARY
+----------
+         2 uma                  faculty              12-JUL-22 13-APR-21
+      2000
+
+         3 siva                 faculty              12-MAR-22 13-MAR-22
+      3000
+
+         2 sirisha              doctor               15-JUL-22 14-AUG-22
+      2000
+
+
+       ENO ENAME                DESIGN               DOB       DOJ
+---------- -------------------- -------------------- --------- ---------
+    SALARY
+----------
+         4 sai                  teacher              13-APR-22 15-JUL-22
+      2000
+
+SQL> select eno,ename,trunc((sysdate-to_date(doj))/365.25,0) as experience_in_years from employe;
+
+       ENO ENAME                EXPERIENCE_IN_YEARS
+---------- -------------------- -------------------
+         2 uma                                    0
+         3 siva                                   0
+         2 sirisha                                0
+         4 sai                                    0
+
+SQL> select eno,ename,trunc((sysdate-to_date(dob))/365.25,0) as age_in_years from employe;
+
+       ENO ENAME                AGE_IN_YEARS
+---------- -------------------- ------------
+         2 uma                             0
+         3 siva                            0
+         2 sirisha                         0
+         4 sai                             0
