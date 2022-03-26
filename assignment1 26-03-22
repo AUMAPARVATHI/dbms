@@ -1,0 +1,36 @@
+A.UMA PARVATHI ASSIGNMENT1
+SQL> conn
+Enter user-name: system
+Enter password:
+Connected.
+SQL> declare
+    a int;
+    b int;
+    c int;
+    procedure big(x in int,y in int,z out int) is
+    begin
+    if( x>y) then
+    z:=x;
+    else
+    z:=y;
+    end if;
+    end;
+    begin
+    a:=&a;
+    b:=&b;
+    big(a,b,c);
+   dbms_output.put_line('biggest of '||a||' and '||b||' is  '||c);
+   end;
+   /
+   
+SQL> set serveroutput on;
+SQL> /
+Enter value for a: 2
+old  14:   a:=&a;
+new  14:   a:=2;
+Enter value for b: 5
+old  15:   b:=&b;
+new  15:   b:=5;
+biggest of 2 and 5 is  5
+
+PL/SQL procedure successfully completed.
