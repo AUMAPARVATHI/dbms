@@ -1,0 +1,13 @@
+/*ASSIGNMENT-1*/
+
+public class PersonalInfo
+ {
+public static void main(String args[])
+ {
+System.out.println("Name: uma");
+System.out.println("Address:" gollaprolu");
+System.out.println("Qualification: "B.com");
+System.out.println("Working exp: 3yrs");
+System.out.println("Contact Number "9705531491");
+}
+}
